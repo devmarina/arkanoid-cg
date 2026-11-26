@@ -10,7 +10,7 @@ def compilaShader(caminho, tipo):
         raise RuntimeError(glGetShaderInfoLog(shader)) #so p mostrar a linha de erro no glsl
     return shader
 
-# R03: compila o vertex shader e o fragment shader e liga os dois num programa
+#R03: compila o vertex shader e o fragment shader e liga os dois num programa
 def criaPrograma(vertPath, fragPath):
     vs = compilaShader(vertPath, GL_VERTEX_SHADER)
     fs = compilaShader(fragPath, GL_FRAGMENT_SHADER)

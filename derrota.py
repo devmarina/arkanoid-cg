@@ -20,7 +20,7 @@ def init():
     recomecar = criaTexto("R para jogar de novo", 0.065, 0, -0.2, cores.ROXO)
     voltar = criaTexto("ESC para voltar ao menu", 0.055, 0, -0.3, cores.ROXO)
 
-# chamada pelo estado.vaiPara('derrota')
+#chamada pelo estado.vaiPara('derrota')
 def entra():
     global tempo, pontosTexto
     tempo = 0
@@ -40,11 +40,8 @@ def update(dt):
 
 # R13: tela de derrota; o efeito de shader (cinza) e o desafio grafico extra
 def render(programa):
-    # a cena do jogo fica parada e vai perdendo a cor (efeito no fragment shader)
-    renderer.cinza(min(tempo / 1.2, 1))
+    renderer.cinza(min(tempo / 1.2, 1))     # a cena do jogo fica parada e vai perdendo a cor (efeito no fragment shader)
     jogo.render(programa)
-
-    # textos sem o efeito, aparecem um depois do outro
     renderer.cinza(0)
     if tempo > 0.6:
         sombraTitulo.draw(programa)

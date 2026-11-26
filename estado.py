@@ -1,8 +1,6 @@
 import glfw
-
-# guarda em qual tela o jogo esta e permite trocar de tela
 tela = 'menu'
-telas = {}      # nome -> modulo (preenchido no main.py)
+telas = {}      
 janela = None
 
 def vaiPara(nome):

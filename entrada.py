@@ -1,7 +1,6 @@
 import glfw
 import estado
 
-# posicao do mouse ja convertida para o mundo do jogo (-1 a 1)
 mouseX = 0
 mouseMexeu = False
 
@@ -11,21 +10,17 @@ def init(janela):
     glfw.set_cursor_pos_callback(janela, mouse)
     glfw.set_mouse_button_callback(janela, clique)
 
-# o glfw chama essa funcao quando uma tecla e apertada
-# quem decide o que fazer e a tela atual
 def tecla(window, key, scancode, action, mods):
     if action != glfw.PRESS:
         return
     estado.telas[estado.tela].tecla(key)
-
-# o glfw chama quando o mouse anda: xpos vai de 0 ate a largura da janela
+# qnd mouse mexe (xpos vai de 0 ate a largura da janela
 def mouse(window, xpos, ypos):
     global mouseX, mouseMexeu
     largura = glfw.get_window_size(window)[0]
     mouseX = xpos / largura * 2 - 1
     mouseMexeu = True
 
-# clique do mouse: so as telas que tem a funcao clique() respondem
 def clique(window, botao, acao, mods):
     if botao == glfw.MOUSE_BUTTON_LEFT and acao == glfw.PRESS:
         modulo = estado.telas[estado.tela]

@@ -23,7 +23,7 @@ raquete = None
 bola = None
 tijolos = []
 velBola = glm.vec2(0, 0)
-preso = True   # bola grudada na raquete esperando o espaco
+preso = True  
 vidas = hud.MAX_VIDAS
 pontos = 0
 
@@ -47,7 +47,7 @@ def init():
     raquete.texId = recursos.raquete
     bola.texId = recursos.bola
 
-# chamada pelo estado.vaiPara('jogo'): comeca uma partida do zero (R14)
+#chamada pelo estado.vaiPara('jogo'): comeca uma partida do zero (R14)
 def entra():
     global vidas, pontos, preso
     vidas = hud.MAX_VIDAS
@@ -66,7 +66,7 @@ def lanca():
         preso = False
         velBola = glm.normalize(glm.vec2(0.4, 1)) * VEL_BOLA
 
-# R09: teclado (aqui) e mouse (clique) soltam a bola
+# R09: teclado e mouse soltam a bola
 def tecla(key):
     if key == glfw.KEY_ESCAPE:
         estado.vaiPara('menu')
@@ -88,7 +88,7 @@ def update(dt):
 
     particulas.update(dt)
 
-    # raquete: teclado, e o mouse manda se mexeu
+    #raquete: teclado, e o mouse manda se mexeu
     raquete.pos.x += entrada.direcao() * VEL_RAQUETE * dt
     if entrada.mouseMexeu:
         raquete.pos.x = entrada.mouseX
@@ -96,7 +96,6 @@ def update(dt):
     meia = raquete.scale.x / 2
     raquete.pos.x = max(-1 + meia, min(1 - meia, raquete.pos.x))
 
-    # bola grudada na raquete (o espaco que solta ela esta na funcao tecla)
     if preso:
         bola.pos.x = raquete.pos.x
         bola.pos.y = raquete.pos.y + raquete.scale.y / 2 + bola.scale.y / 2
@@ -106,7 +105,6 @@ def update(dt):
     bola.pos.x += velBola.x * dt
     bola.pos.y += velBola.y * dt
 
-    # paredes e teto
     r = bola.scale.x / 2
     if bola.pos.x - r < -1:
         bola.pos.x = -1 + r
@@ -118,7 +116,7 @@ def update(dt):
         bola.pos.y = 1 - r
         velBola.y = -abs(velBola.y)
 
-    # caiu embaixo: perde vida (R12) e, sem vidas, derrota (R13)
+    #caiu embaixo: perde vida (R12) e, sem vidas, derrota (R13)
     if bola.pos.y + r < -1:
         vidas -= 1
         preso = True
@@ -126,7 +124,6 @@ def update(dt):
             estado.vaiPara('derrota')
         return
 
-    # raquete
     dx, dy = sobreposicao(bola, raquete)
     if dx > 0 and dy > 0 and velBola.y < 0:
         # quanto mais longe do centro, mais inclinada sai a bola
@@ -134,7 +131,6 @@ def update(dt):
         velBola = glm.normalize(glm.vec2(desvio, 1)) * VEL_BOLA
         bola.pos.y = raquete.pos.y + raquete.scale.y / 2 + r
 
-    # tijolos (um por frame)
     for t in tijolos:
         dx, dy = sobreposicao(bola, t)
         if dx > 0 and dy > 0:

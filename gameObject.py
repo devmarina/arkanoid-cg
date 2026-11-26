@@ -4,7 +4,7 @@ import glm
 from OpenGL.GL import *
 
 class GameObject:
-    vaoId = None  # o quadrado e o mesmo p todos os objetos, entao so cria uma vez
+    vaoId = None  # o quadrado eh o mesmo p todos os objetos, entao so cria uma vez
 
     def __init__(self, x=0, y=0, w=1, h=1, color=(1, 1, 1)):
         self.vertices = [
@@ -13,14 +13,12 @@ class GameObject:
             [0.5, 0.5, 0],    # v2
             [-0.5, 0.5, 0],   # v3
         ]
-
         self.uvs = [
             [0, 0],
             [1, 0],
             [1, 1],
             [0, 1],
         ]
-
         # R01: a primitiva e o triangulo; o quadrado sao 2 triangulos
         self.faces = [
             [0, 1, 2],

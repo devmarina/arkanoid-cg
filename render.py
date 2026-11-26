@@ -9,13 +9,13 @@ def init():
     global programa
     glClearColor(*cores.COR_FUNDO, 1)
     glEnable(GL_BLEND)
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)  # respeita o fundo transparente
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)  
     programa = criaPrograma('shaders/sprite.vert', 'shaders/sprite.frag')
 
 def resize(window, w, h):
     glViewport(0, 0, w, h)
 
-# comeca um frame novo: limpa a tela e envia camera e projecao
+#comeca um frame novo: limpa a tela e envia camera e projecao
 def comeca():
     glClear(GL_COLOR_BUFFER_BIT)
     glUseProgram(programa)
@@ -27,7 +27,6 @@ def comeca():
     glUniformMatrix4fv(glGetUniformLocation(programa, "viewMatrix"), 1, GL_FALSE, glm.value_ptr(V))
     cinza(0)
 
-# efeito de shader: 0 = cores normais, 1 = tudo cinza e escurecido
-# vale para tudo que for desenhado depois da chamada
+# efeito de shader: 0 = cores normais, 1 = tudo cinza e escurecido vale p tudo q for desenhado depois da chamada
 def cinza(valor):
     glUniform1f(glGetUniformLocation(programa, "cinza"), valor)

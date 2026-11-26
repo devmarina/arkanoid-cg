@@ -23,7 +23,6 @@ velBola = glm.vec2(0.6, 0.4)
 # R08: tela inicial com titulo, equipe e instrucao
 def init():
     global pressione, bola, raquete
-    # tijolinhos la em cima
     for j in range(2):
         for i in range(8):
             t = GameObject(-0.77 + i * 0.22, 0.88 - j * 0.11, 0.2, 0.1, TONS_TIJOLO[(i + j) % 5])

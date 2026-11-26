@@ -3,7 +3,6 @@ from OpenGL.GL import *
 
 # R06: carrega uma imagem (Pillow) e cria a textura no OpenGL
 class Texture:
-    # sem arquivo e sem img = textura branca 1x1, o objeto aparece so com a cor (color)
     # img = imagem PIL ja pronta (usada para os textos)
     # suave = True usa GL_LINEAR (bom para texto), False usa GL_NEAREST (pixel art)
     def __init__(self, fileName=None, img=None, suave=False):

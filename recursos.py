@@ -1,8 +1,7 @@
 from texture import Texture
 
-# texturas usadas por varios arquivos
-branca = None   # 1x1 branca: objeto aparece so com a cor
-tijolos = []    # uma textura de tijolo para cada linha
+branca = None   
+tijolos = [] 
 raquete = None
 bola = None
 estrela = None

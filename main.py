@@ -9,7 +9,7 @@ import jogo
 import derrota
 import vitoria
 
-# R15: o codigo e dividido em modulos; este arquivo so cria a janela e roda o loop
+#R15: codigo  dividido em modulos. este arquivo so cria a janela e roda o loop
 def main():
     glfw.init()
     glfw.window_hint(glfw.CONTEXT_VERSION_MAJOR, 3)

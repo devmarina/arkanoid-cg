@@ -9,13 +9,10 @@ icones = []
 pontosTexto = None
 
 def init():
-    # uma mini raquete para cada vida, no canto de cima
     for i in range(MAX_VIDAS):
         icone = GameObject(-0.9 + i * 0.14, 0.95, 0.1, 0.023, (1, 1, 1))
         icone.texId = recursos.raquete
         icones.append(icone)
-
-# o texto dos pontos vira uma textura nova, entao so refazemos quando o valor muda
 def setPontos(n):
     global pontosTexto
     if pontosTexto is not None:
@@ -23,7 +20,6 @@ def setPontos(n):
     pontosTexto = criaTexto(f"pontos: {n}", 0.06, 0, 0.95, cores.ROXO_CLARO)
     pontosTexto.pos.x = 0.95 - pontosTexto.scale.x / 2  # encosta na direita
 
-# vidas que sobraram ficam acesas, as perdidas ficam apagadas
 def render(programa, vidas):
     for i in range(MAX_VIDAS):
         if i < vidas:

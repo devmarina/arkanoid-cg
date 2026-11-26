@@ -22,7 +22,7 @@ def init():
     recomecar = criaTexto("R para jogar de novo", 0.065, 0, -0.35, cores.ROXO)
     voltar = criaTexto("ESC para voltar ao menu", 0.055, 0, -0.45, cores.ROXO)
 
-# chamada pelo estado.vaiPara('vitoria')
+#chamada pelo estado.vaiPara('vitoria')
 def entra():
     global tempo, proximoConfete, pontosTexto
     tempo = 0
@@ -42,7 +42,7 @@ def update(dt):
     tempo += dt
     particulas.update(dt)
 
-    # chuva de confete: um novo a cada 0.03 s
+    #chuva de confete :D  
     proximoConfete -= dt
     while proximoConfete <= 0:
         particulas.confete(random.choice(jogo.CORES_LINHAS))
