@@ -1,0 +1,5 @@
+COR_FUNDO = (0.04, 0.05, 0.13)  # azul bem escuro
+
+ROXO = (0.65, 0.48, 0.95)
+ROXO_CLARO = (0.82, 0.74, 1.0)
+ROXO_ESCURO = (0.28, 0.18, 0.52)
